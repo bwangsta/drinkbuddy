@@ -62,8 +62,8 @@
 <!-- ROADMAP -->
 ## Roadmap
 * [x] Display different drink categories on home page
-* [ ] Randomize drinks shown everytime user reaches home page
-* [ ] Users can get more information when a drink is pressed
+* [x] Randomize drinks shown everytime user reaches home page
+* [x] Users can get more information when a drink is pressed
 * [ ] Search screen where user can search for their drink
 
 
