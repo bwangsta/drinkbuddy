@@ -65,6 +65,7 @@
 * [x] Randomize drinks shown everytime user reaches home page
 * [x] Users can get more information when a drink is pressed
 * [ ] Search screen where user can search for their drink
+* [ ] Add a random button that displays a random drink when pressed
 
 
 <!-- ACKNOWLEDGMENTS -->

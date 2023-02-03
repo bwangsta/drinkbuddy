@@ -1,4 +1,5 @@
-import { ScrollView, View, Text } from "react-native"
+import { ScrollView, View, Text, TouchableOpacity } from "react-native"
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 function DrinksRow(props: { type: string, children }) {
   return (
@@ -7,13 +8,15 @@ function DrinksRow(props: { type: string, children }) {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        className="space-x-2"
         contentContainerStyle={{
           paddingHorizontal: 8,
           paddingTop: 8,
         }}
       >
         {props.children}
+        <TouchableOpacity className="flex justify-center">
+          <Ionicons name="arrow-forward" size={28} />
+        </TouchableOpacity>
       </ScrollView>
     </View>
   )
