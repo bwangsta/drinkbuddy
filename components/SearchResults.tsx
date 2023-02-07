@@ -2,19 +2,21 @@ import { View } from "react-native"
 import { DrinkInfoScreenProps, Drink, Status } from "../types"
 import SearchResult from "./SearchResult"
 
+type SearchResultsProps = {
+  searchResults: Drink[]
+  status: Status
+  navigation: DrinkInfoScreenProps["navigation"]
+  setQuery: React.Dispatch<React.SetStateAction<string>>
+  setStatus: React.Dispatch<React.SetStateAction<Status>>
+}
+
 function SearchResults({
   searchResults,
   status,
   navigation,
   setQuery,
   setStatus,
-}: {
-  searchResults: Drink[]
-  status: Status
-  navigation: DrinkInfoScreenProps["navigation"]
-  setQuery: React.Dispatch<React.SetStateAction<string>>
-  setStatus: React.Dispatch<React.SetStateAction<Status>>
-}) {
+}: SearchResultsProps) {
   function handleResultPress(result: Drink) {
     setQuery("")
     setStatus("submitting")

@@ -1,13 +1,12 @@
 import { TouchableOpacity, Image, Text } from "react-native"
 import { Drink } from "../types"
 
-function SearchResult({
-  result,
-  handleResultPress,
-}: {
+type SearchResultProps = {
   result: Drink
   handleResultPress: (result: Drink) => void
-}) {
+}
+
+function SearchResult({ result, handleResultPress }: SearchResultProps) {
   return (
     <TouchableOpacity
       key={result.idDrink}

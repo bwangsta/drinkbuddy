@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native"
-import { DrinkInfoScreenProps, DrinkInfo, Drink } from "../types"
+import { DrinkInfoScreenProps, DrinkInfo } from "../types"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
 function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
@@ -80,19 +80,19 @@ function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
 
   return (
     <ScrollView>
-      <View className="bg-black relative">
+      <View className="relative bg-black">
         <TouchableOpacity
-          className="bg-slate-200 absolute top-14 left-4 z-10 rounded-full"
+          className="absolute top-14 left-4 z-10 rounded-full bg-slate-200"
           onPress={() => navigation.goBack()}
         >
           <Ionicons name="arrow-back" size={36}></Ionicons>
         </TouchableOpacity>
         <Image
-          className="w-full h-96 opacity-70"
+          className="h-96 w-full opacity-70"
           source={{ uri: drinkInfo.strDrinkThumb }}
         />
       </View>
-      <View className="p-4 flex gap-3">
+      <View className="flex gap-3 p-4">
         <Text className="text-4xl">{drinkInfo.strDrink}</Text>
         <View className="flex flex-row justify-between">
           <Text>{drinkInfo.strCategory}</Text>

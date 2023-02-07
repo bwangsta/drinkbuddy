@@ -12,11 +12,11 @@ import DrinkCard from "../components/DrinkCard"
 import DrinksRow from "../components/DrinksRow"
 import SearchBar from "../components/Searchbar"
 
-function HomeScreen({
-  navigation,
-}: {
+type HomeScreenProps = {
   navigation: DrinkInfoScreenProps["navigation"]
-}) {
+}
+
+function HomeScreen({ navigation }: HomeScreenProps) {
   const [cocktails] = useState(cocktailData.drinks)
   const [beers] = useState(beerData.drinks)
   const [shots] = useState(shotData.drinks)

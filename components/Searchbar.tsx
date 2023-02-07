@@ -6,11 +6,11 @@ import SearchResults from "./SearchResults"
 
 import searchData from "../data/searchData"
 
-function Searchbar({
-  navigation,
-}: {
+type SearchbarProps = {
   navigation: DrinkInfoScreenProps["navigation"]
-}) {
+}
+
+function Searchbar({ navigation }: SearchbarProps) {
   const [query, setQuery] = useState("")
   const [status, setStatus] = useState<Status>("empty")
   const [searchResults, setSearchResults] = useState<Drink[]>([])

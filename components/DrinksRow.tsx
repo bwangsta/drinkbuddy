@@ -2,17 +2,17 @@ import { ScrollView, View, Text, TouchableOpacity } from "react-native"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
 type DrinksRowProps = {
-  icon
+  icon: any
   type: string
   children: React.ReactNode
 }
 
 function DrinksRow({ icon, type, children }: DrinksRowProps) {
   return (
-    <View className="py-4 -z-10">
+    <View className="-z-10 py-4">
       <View className="flex flex-row items-center">
         {icon}
-        <Text className="text-xl mx-1 font-bold">{type}</Text>
+        <Text className="mx-1 text-xl font-bold">{type}</Text>
       </View>
       <ScrollView
         horizontal
