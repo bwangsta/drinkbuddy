@@ -1,19 +1,27 @@
 import { ScrollView, View, Text, TouchableOpacity } from "react-native"
-import Ionicons from '@expo/vector-icons/Ionicons'
+import Ionicons from "@expo/vector-icons/Ionicons"
 
-function DrinksRow(props: { type: string, children }) {
+type DrinksRowProps = {
+  icon
+  type: string
+  children: React.ReactNode
+}
+
+function DrinksRow({ icon, type, children }: DrinksRowProps) {
   return (
-    <View className="py-4">
-      <Text className="text-xl pl-3 font-bold">{props.type}</Text>
+    <View className="py-4 -z-10">
+      <View className="flex flex-row items-center">
+        {icon}
+        <Text className="text-xl mx-1 font-bold">{type}</Text>
+      </View>
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
-          paddingHorizontal: 8,
-          paddingTop: 8,
+          paddingVertical: 1,
         }}
       >
-        {props.children}
+        {children}
         <TouchableOpacity className="flex justify-center">
           <Ionicons name="arrow-forward" size={28} />
         </TouchableOpacity>

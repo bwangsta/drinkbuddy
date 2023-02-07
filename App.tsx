@@ -1,9 +1,10 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import DrinkInfoScreen from './screens/DrinkInfoScreen';
-import HomeScreen from './screens/HomeScreen'
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { RootStackParamList } from "./types"
+import DrinkInfoScreen from "./screens/DrinkInfoScreen"
+import HomeScreen from "./screens/HomeScreen"
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Stack.Screen name="DrinkInfo" component={DrinkInfoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
 export default App

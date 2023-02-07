@@ -1,4 +1,5 @@
 # DrinkBuddy
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -22,21 +23,23 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
-
 ### Built With
-* React Native
-* TypeScript
-* NativeWind (TailwindCSS)
+
+- React Native
+- TypeScript
+- NativeWind (TailwindCSS)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
+
 ### Prerequisites
-* npm
+
+- npm
   ```sh
   npm install npm@latest -g
   ```
@@ -58,15 +61,18 @@
 
 ## Usage
 
-
 <!-- ROADMAP -->
-## Roadmap
-* [x] Display different drink categories on home page
-* [x] Randomize drinks shown everytime user reaches home page
-* [x] Users can get more information when a drink is pressed
-* [ ] Search screen where user can search for their drink
-* [ ] Add a random button that displays a random drink when pressed
 
+## Roadmap
+
+- [x] Display different drink categories on home page
+- [x] Randomize drinks shown everytime user reaches home page
+- [x] Users can get more information when a drink is pressed
+- [x] Searchbar where users can search for a drink
+- [ ] Optimize search function (Ex. Search results disappear when input is out of focus, search results appear when input is in focus, immediately navigate to drink info screen after one tap on search result)
+- [ ] Add a random button that displays a random drink when pressed
+- [ ] Add drink category screen when user clicks right arrow on home screen
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
