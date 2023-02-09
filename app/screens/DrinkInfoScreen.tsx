@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native"
+import { StatusBar } from "expo-status-bar"
 import { DrinkInfoScreenProps, DrinkInfo } from "../types"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
@@ -80,6 +81,7 @@ function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
 
   return (
     <ScrollView>
+      <StatusBar style="light" />
       <View className="relative bg-black">
         <TouchableOpacity
           className="absolute top-14 left-4 z-10 rounded-full bg-slate-200"

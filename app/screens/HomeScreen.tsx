@@ -1,5 +1,7 @@
-import { ScrollView, SafeAreaView } from "react-native"
+import { ScrollView } from "react-native"
 import { useEffect, useState } from "react"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { StatusBar } from "expo-status-bar"
 import { Ionicons } from "@expo/vector-icons"
 import { Fontisto } from "@expo/vector-icons"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
@@ -67,14 +69,9 @@ function HomeScreen({ navigation }: HomeScreenProps) {
   }
 
   return (
-    <SafeAreaView>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          marginHorizontal: 16,
-          paddingTop: 48,
-        }}
-      >
+    <SafeAreaView className="p-4">
+      <StatusBar style="dark" />
+      <ScrollView showsVerticalScrollIndicator={false}>
         <SearchBar navigation={navigation} />
         <DrinksRow
           type="Cocktails"
