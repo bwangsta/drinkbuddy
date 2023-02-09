@@ -1,24 +1,30 @@
-import { TouchableOpacity, Image, Text, View } from "react-native"
+import { TouchableOpacity, Image, Text } from "react-native"
+import { ScreenNavigationProps } from "../types"
 
 type DrinkCardProps = {
   id: string
-  image: string
   name: string
-  handleCardPress: (id: string) => void
+  image: string
+  size: "small" | "large"
+  navigation: ScreenNavigationProps["navigation"]
 }
 
-function DrinkCard({ id, image, name, handleCardPress }: DrinkCardProps) {
+function DrinkCard({ id, name, image, size, navigation }: DrinkCardProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
-      className="w-48 mx-1 relative bg-black rounded-lg"
-      onPress={() => handleCardPress(id)}
+      className={`relative m-1 rounded-lg bg-black ${
+        size === "small" ? "w-28" : "w-48"
+      }`}
+      onPress={() => navigation.navigate("DrinkInfo", { id: id })}
     >
       <Image
-        className="w-full h-48 rounded-lg opacity-70"
+        className={`w-full rounded-lg opacity-60 ${
+          size === "small" ? "h-28" : "h-48"
+        }`}
         source={{ uri: image }}
       />
-      <Text className="text-base absolute bottom-1 left-2 right-2 font-bold text-white">
+      <Text className="absolute bottom-1 left-2 right-2 text-base font-bold text-white">
         {name}
       </Text>
     </TouchableOpacity>

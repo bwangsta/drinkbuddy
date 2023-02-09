@@ -4,6 +4,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context"
 import { RootStackParamList } from "./app/types"
 import DrinkInfoScreen from "./app/screens/DrinkInfoScreen"
 import HomeScreen from "./app/screens/HomeScreen"
+import DrinkCategoryScreen from "./app/screens/DrinkCategoryScreen"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -14,6 +15,7 @@ function App() {
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="DrinkInfo" component={DrinkInfoScreen} />
+          <Stack.Screen name="DrinkCategory" component={DrinkCategoryScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

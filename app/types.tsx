@@ -3,13 +3,12 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack"
 export type RootStackParamList = {
   Home: undefined
   DrinkInfo: { id: string }
+  DrinkCategory: { category: string }
 }
 
-export type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">
-
-export type DrinkInfoScreenProps = NativeStackScreenProps<
+export type ScreenNavigationProps = NativeStackScreenProps<
   RootStackParamList,
-  "DrinkInfo"
+  "Home" | "DrinkCategory" | "DrinkInfo"
 >
 
 export type Drink = {

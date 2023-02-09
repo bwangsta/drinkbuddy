@@ -1,11 +1,11 @@
 import { View } from "react-native"
-import { DrinkInfoScreenProps, Drink, Status } from "../types"
+import { ScreenNavigationProps, Drink, Status } from "../types"
 import SearchResult from "./SearchResult"
 
 type SearchResultsProps = {
   searchResults: Drink[]
   status: Status
-  navigation: DrinkInfoScreenProps["navigation"]
+  navigation: ScreenNavigationProps["navigation"]
   setQuery: React.Dispatch<React.SetStateAction<string>>
   setStatus: React.Dispatch<React.SetStateAction<Status>>
 }

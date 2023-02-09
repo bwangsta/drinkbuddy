@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native"
 import { StatusBar } from "expo-status-bar"
-import { DrinkInfoScreenProps, DrinkInfo } from "../types"
+import { ScreenNavigationProps, DrinkInfo } from "../types"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
-function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
+function DrinkInfoScreen({ navigation, route }: ScreenNavigationProps) {
   const [drinkInfo, setDrinkInfo] = useState<DrinkInfo>({
     idDrink: "",
     strDrink: "",
@@ -52,7 +52,7 @@ function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
     async function fetchDrinkInfo() {
       try {
         const response = await fetch(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${route.params?.id}`
         )
         const data = await response.json()
         setDrinkInfo(data.drinks[0])
@@ -64,17 +64,25 @@ function DrinkInfoScreen({ navigation, route }: DrinkInfoScreenProps) {
     fetchDrinkInfo()
   }, [])
 
-  const { id } = route.params
-
   function getIngredients(numOfIngredients: number = 15) {
     const ingredients = []
     for (let i = 1; i < numOfIngredients + 1; i++) {
       const measure = drinkInfo[`strMeasure${i}` as keyof DrinkInfo]
       const ingredient = drinkInfo[`strIngredient${i}` as keyof DrinkInfo]
-      if (measure !== null || ingredient !== null)
-        ingredients.push(
-          <Text key={ingredient}>&#x2022; {`${measure} ${ingredient}`}</Text>
-        )
+      // Make sure there is an ingredient provided
+      // Sometimes measure is not provided since saying 1 Orange Juice is redundant
+      // to saying Orange Juice so we want to keep the ingredient
+      if (ingredient !== null) {
+        if (measure === null) {
+          ingredients.push(
+            <Text key={ingredient}>&#x2022; {`${ingredient}`}</Text>
+          )
+        } else {
+          ingredients.push(
+            <Text key={ingredient}>&#x2022; {`${measure} ${ingredient}`}</Text>
+          )
+        }
+      }
     }
     return ingredients
   }

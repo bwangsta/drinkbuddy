@@ -1,13 +1,15 @@
 import { ScrollView, View, Text, TouchableOpacity } from "react-native"
 import Ionicons from "@expo/vector-icons/Ionicons"
+import { ScreenNavigationProps } from "../types"
 
 type DrinksRowProps = {
   icon: any
   type: string
   children: React.ReactNode
+  navigation: ScreenNavigationProps["navigation"]
 }
 
-function DrinksRow({ icon, type, children }: DrinksRowProps) {
+function DrinksRow({ icon, type, children, navigation }: DrinksRowProps) {
   return (
     <View className="-z-10 py-4">
       <View className="flex flex-row items-center">
@@ -22,7 +24,12 @@ function DrinksRow({ icon, type, children }: DrinksRowProps) {
         }}
       >
         {children}
-        <TouchableOpacity className="flex justify-center">
+        <TouchableOpacity
+          className="flex justify-center"
+          onPress={() =>
+            navigation.navigate("DrinkCategory", { category: type })
+          }
+        >
           <Ionicons name="arrow-forward" size={28} />
         </TouchableOpacity>
       </ScrollView>

@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar"
 import { Ionicons } from "@expo/vector-icons"
 import { Fontisto } from "@expo/vector-icons"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { DrinkInfoScreenProps, Drink } from "../types"
+import { ScreenNavigationProps, Drink } from "../types"
 import cocktailData from "../data/cocktailData"
 import beerData from "../data/beerData"
 import shotData from "../data/shotData"
@@ -15,7 +15,7 @@ import DrinksRow from "../components/DrinksRow"
 import SearchBar from "../components/Searchbar"
 
 type HomeScreenProps = {
-  navigation: DrinkInfoScreenProps["navigation"]
+  navigation: ScreenNavigationProps["navigation"]
 }
 
 function HomeScreen({ navigation }: HomeScreenProps) {
@@ -54,18 +54,14 @@ function HomeScreen({ navigation }: HomeScreenProps) {
         <DrinkCard
           key={idDrink}
           id={idDrink}
-          image={strDrinkThumb}
           name={strDrink}
-          handleCardPress={handleCardPress}
+          image={strDrinkThumb}
+          size="large"
+          navigation={navigation}
         />
       )
     }
     return drinks
-  }
-
-  // Go to drinks info screen
-  function handleCardPress(id: string) {
-    navigation.navigate("DrinkInfo", { id: id })
   }
 
   return (
@@ -74,19 +70,22 @@ function HomeScreen({ navigation }: HomeScreenProps) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <SearchBar navigation={navigation} />
         <DrinksRow
-          type="Cocktails"
+          type="Cocktail"
           icon={<Fontisto name="cocktail" size={20} color="black" />}
           children={drinkCards(cocktails)}
+          navigation={navigation}
         />
         <DrinksRow
           type="Beer"
           icon={<Ionicons name="beer" size={20} color="black" />}
           children={drinkCards(beers)}
+          navigation={navigation}
         />
         <DrinksRow
           type="Shot"
           icon={<MaterialCommunityIcons name="cup" size={20} color="black" />}
           children={drinkCards(shots)}
+          navigation={navigation}
         />
         <DrinksRow
           type="Homemade Liquor"
@@ -94,6 +93,7 @@ function HomeScreen({ navigation }: HomeScreenProps) {
             <MaterialCommunityIcons name="liquor" size={20} color="black" />
           }
           children={drinkCards(liquors)}
+          navigation={navigation}
         />
       </ScrollView>
     </SafeAreaView>

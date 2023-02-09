@@ -69,9 +69,9 @@
 - [x] Randomize drinks shown everytime user reaches home page
 - [x] Users can get more information when a drink is pressed
 - [x] Searchbar where users can search for a drink
+- [x] Add drink category screen when user clicks right arrow on home screen
 - [ ] Optimize search function (Ex. Search results disappear when input is out of focus, search results appear when input is in focus, immediately navigate to drink info screen after one tap on search result)
 - [ ] Add a random button that displays a random drink when pressed
-- [ ] Add drink category screen when user clicks right arrow on home screen
 
 <!-- ACKNOWLEDGMENTS -->
 
