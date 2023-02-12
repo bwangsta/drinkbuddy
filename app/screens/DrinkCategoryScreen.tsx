@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
 import { View, ActivityIndicator, FlatList } from "react-native"
-import { Drink, ScreenNavigationProps } from "../types"
+import { Drink, DrinkCategoryNavigationProps } from "../types"
 import DrinkCard from "../components/DrinkCard"
 
-function DrinkCategoryScreen({ navigation, route }: ScreenNavigationProps) {
+function DrinkCategoryScreen({
+  navigation,
+  route,
+}: DrinkCategoryNavigationProps) {
   const [drinks, setDrinks] = useState<Drink[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -58,19 +61,17 @@ function DrinkCategoryScreen({ navigation, route }: ScreenNavigationProps) {
         }}
         numColumns={3}
         horizontal={false}
-        initialNumToRender={18}
+        initialNumToRender={10}
         data={drinks}
-        renderItem={({ item }) => {
-          return (
-            <DrinkCard
-              id={item.idDrink}
-              name={item.strDrink}
-              image={item.strDrinkThumb}
-              size="small"
-              navigation={navigation}
-            />
-          )
-        }}
+        renderItem={({ item }) => (
+          <DrinkCard
+            id={item.idDrink}
+            name={item.strDrink}
+            image={item.strDrinkThumb}
+            size="small"
+            navigation={navigation}
+          />
+        )}
       />
     </View>
   )

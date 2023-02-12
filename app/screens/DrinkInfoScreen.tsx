@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Text, View, Image, ScrollView, TouchableOpacity } from "react-native"
 import { StatusBar } from "expo-status-bar"
-import { ScreenNavigationProps, DrinkInfo } from "../types"
+import { DrinkInfoNavigationProps, DrinkInfo } from "../types"
 import Ionicons from "@expo/vector-icons/Ionicons"
 
-function DrinkInfoScreen({ navigation, route }: ScreenNavigationProps) {
+function DrinkInfoScreen({ navigation, route }: DrinkInfoNavigationProps) {
   const [drinkInfo, setDrinkInfo] = useState<DrinkInfo>({
     idDrink: "",
     strDrink: "",
@@ -45,14 +45,10 @@ function DrinkInfoScreen({ navigation, route }: ScreenNavigationProps) {
   })
 
   useEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    })
-
     async function fetchDrinkInfo() {
       try {
         const response = await fetch(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${route.params?.id}`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${route.params.id}`
         )
         const data = await response.json()
         setDrinkInfo(data.drinks[0])

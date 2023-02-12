@@ -1,11 +1,11 @@
 import { ScrollView } from "react-native"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { StatusBar } from "expo-status-bar"
 import { Ionicons } from "@expo/vector-icons"
 import { Fontisto } from "@expo/vector-icons"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
-import { ScreenNavigationProps, Drink } from "../types"
+import { HomeNavigationProps, Drink } from "../types"
 import cocktailData from "../data/cocktailData"
 import beerData from "../data/beerData"
 import shotData from "../data/shotData"
@@ -14,21 +14,11 @@ import DrinkCard from "../components/DrinkCard"
 import DrinksRow from "../components/DrinksRow"
 import SearchBar from "../components/Searchbar"
 
-type HomeScreenProps = {
-  navigation: ScreenNavigationProps["navigation"]
-}
-
-function HomeScreen({ navigation }: HomeScreenProps) {
+function HomeScreen({ navigation }: HomeNavigationProps) {
   const [cocktails] = useState(cocktailData.drinks)
   const [beers] = useState(beerData.drinks)
   const [shots] = useState(shotData.drinks)
   const [liquors] = useState(liquorData.drinks)
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    })
-  })
 
   // Used for getting random drinks everytime the Home screen renders
   // Gets random numbers and stores and returns a set to make sure there are no duplicates

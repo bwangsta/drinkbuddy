@@ -1,4 +1,4 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import type { NativeStackScreenProps } from "@react-navigation/native-stack"
 
 export type RootStackParamList = {
   Home: undefined
@@ -6,9 +6,19 @@ export type RootStackParamList = {
   DrinkCategory: { category: string }
 }
 
-export type ScreenNavigationProps = NativeStackScreenProps<
+export type HomeNavigationProps = NativeStackScreenProps<
   RootStackParamList,
-  "Home" | "DrinkCategory" | "DrinkInfo"
+  "Home"
+>
+
+export type DrinkInfoNavigationProps = NativeStackScreenProps<
+  RootStackParamList,
+  "DrinkInfo"
+>
+
+export type DrinkCategoryNavigationProps = NativeStackScreenProps<
+  RootStackParamList,
+  "DrinkCategory"
 >
 
 export type Drink = {
